@@ -1,0 +1,18 @@
+﻿%token NUM ID PLUS MINUS TIMES DIV LPAREN RPAREN
+
+%%
+
+expr : expr PLUS  term
+     | expr MINUS term
+     | term
+     ;
+
+term : term TIMES factor
+     | term DIV   factor
+     | factor
+     ;
+
+factor : LPAREN expr RPAREN
+       | NUM
+       | ID
+       ;

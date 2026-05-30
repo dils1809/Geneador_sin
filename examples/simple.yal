@@ -1,0 +1,16 @@
+﻿{ (* Lexer de calculadora simple *) }
+
+let digit  = ['0'-'9']
+let letter = ['a'-'z''A'-'Z']
+let ws     = [' ''\t''\n']
+
+rule tokens =
+  | digit+              { return ("NUM",   lexeme) }
+  | letter(letter|digit)*  { return ("ID",    lexeme) }
+  | '+'                 { return ("PLUS",  lexeme) }
+  | '-'                 { return ("MINUS", lexeme) }
+  | '*'                 { return ("TIMES", lexeme) }
+  | '/'                 { return ("DIV",   lexeme) }
+  | '('                 { return ("LPAREN",lexeme) }
+  | ')'                 { return ("RPAREN",lexeme) }
+  | ws+                 {  }
