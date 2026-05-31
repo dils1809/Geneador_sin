@@ -1,0 +1,48 @@
+{ (* Mam Maya - Huehuetenango/San Marcos, Guatemala. ALMG 2009 *) }
+
+let letra     = ['a'-'z''A'-'Z']
+let apostrofe = ['\''']
+let espacio   = [' ''\t''\n']+
+let punto     = '.'
+let coma      = ','
+
+rule tokens =
+  | "in"            { return ("PRON_1S",  lexeme) }
+  | "at"            { return ("PRON_2S",  lexeme) }
+  | "e"             { return ("PRON_3S",  lexeme) }
+  | "oj"            { return ("PRON_1P",  lexeme) }
+  | "ey"            { return ("PRON_3P",  lexeme) }
+  | "tzaj"          { return ("VERBO",    lexeme) }
+  | "jaw"           { return ("VERBO",    lexeme) }
+  | "b'et"          { return ("VERBO",    lexeme) }
+  | "tz'ok"         { return ("VERBO",    lexeme) }
+  | "tz'ib'"        { return ("VERBO",    lexeme) }
+  | "xnaq'tzb'il"   { return ("VERBO",    lexeme) }
+  | "q'on"          { return ("VERBO",    lexeme) }
+  | "b'ixan"        { return ("VERBO",    lexeme) }
+  | "tz'aq"         { return ("VERBO",    lexeme) }
+  | "b'ant"         { return ("VERBO",    lexeme) }
+  | "txutx"         { return ("SUST",     lexeme) }
+  | "tat"           { return ("SUST",     lexeme) }
+  | "ali"           { return ("SUST",     lexeme) }
+  | "achin"         { return ("SUST",     lexeme) }
+  | "ixim"          { return ("SUST",     lexeme) }
+  | "ja"            { return ("SUST",     lexeme) }
+  | "tnam"          { return ("SUST",     lexeme) }
+  | "b'ix"          { return ("SUST",     lexeme) }
+  | "q'an"          { return ("SUST",     lexeme) }
+  | "witz"          { return ("SUST",     lexeme) }
+  | "aab'"          { return ("SUST",     lexeme) }
+  | "tx'otx'"       { return ("SUST",     lexeme) }
+  | "q'aq'"         { return ("SUST",     lexeme) }
+  | "ya'"           { return ("SUST",     lexeme) }
+  | "tuj"           { return ("DET",      lexeme) }
+  | "ti'"           { return ("DET",      lexeme) }
+  | "mi"            { return ("NEG",      lexeme) }
+  | "ex"            { return ("CONJ",     lexeme) }
+  | "jte'"          { return ("CONJ",     lexeme) }
+  | "ax"            { return ("ADV",      lexeme) }
+  | "qa"            { return ("ADV",      lexeme) }
+  | espacio+        {  }
+  | punto           { return ("PUNTO",    lexeme) }
+  | coma            { return ("COMA",     lexeme) }

@@ -1,0 +1,24 @@
+%token PRON_1S PRON_2S PRON_3S PRON_1P PRON_3P VERBO SUST DET NEG CONJ ADV PUNTO COMA
+
+%%
+
+programa : oracion
+         | programa oracion
+         ;
+
+oracion : frase_nominal VERBO frase_nominal PUNTO
+        | frase_nominal VERBO PUNTO
+        | NEG frase_nominal VERBO frase_nominal PUNTO
+        | NEG frase_nominal VERBO PUNTO
+        | frase_nominal CONJ frase_nominal VERBO PUNTO
+        ;
+
+frase_nominal : DET SUST
+              | SUST
+              | ADV SUST
+              | PRON_1S
+              | PRON_2S
+              | PRON_3S
+              | PRON_1P
+              | PRON_3P
+              ;
